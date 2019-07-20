@@ -35,6 +35,7 @@ services:
         - INSTALL_YAML=${PHP_INSTALL_YAML}
         - INSTALL_RDKAFKA=${PHP_INSTALL_RDKAFKA}
         - INSTALL_FFMPEG=${PHP_INSTALL_FFMPEG}
+        - INSTALL_V8Js=${PHP_INSTALL_V8Js}
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - ./php/php.ini:/usr/local/etc/php/php.ini
@@ -76,6 +77,7 @@ services:
         - INSTALL_YAML=${PHP_INSTALL_YAML}
         - INSTALL_RDKAFKA=${PHP_INSTALL_RDKAFKA}
         - INSTALL_FFMPEG=${PHP_INSTALL_FFMPEG}
+        - INSTALL_V8Js=${PHP_INSTALL_V8Js}
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - ./php/php.ini:/usr/local/etc/php/php.ini
@@ -104,4 +106,4 @@ services:
       - web
     networks:
       - frontend
-      - backend
+      - backends

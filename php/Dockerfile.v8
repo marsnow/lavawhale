@@ -271,7 +271,27 @@ RUN if [ ${INSTALL_XDEBUG} = true ]; then \
   docker-php-ext-enable xdebug \
 ;fi
 
-#
+###########################################################################
+# V8Js:
+###########################################################################
+
+ARG INSTALL_V8Js=false
+
+RUN if [ ${INSTALL_V8Js} = true ]; then \
+  apt-get install -y software-properties-common && \
+  add-apt-repository -y ppa:ondrej/php && \
+  add-apt-repository -y ppa:pinepain/libv8 \
+;fi
+
+RUN if [ ${INSTALL_V8Js} = true ]; then \
+  apt-get -y install libv8-dev \
+;fi
+
+RUN if [ ${INSTALL_V8Js} = true ]; then \
+  pecl install v8js && \
+  docker-php-ext-enable v8js \
+;fi
+
 #--------------------------------------------------------------------------
 # Final Touch
 #--------------------------------------------------------------------------
